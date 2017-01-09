@@ -22,7 +22,5 @@
     "angular-material": "^1.1.1",
     "angular-ui-router": "^0.3.2"
   },
-  "devDependencies": {
-    "http-server": "^0.9.0"
-  }
+  "devDependencies": {}
 }
