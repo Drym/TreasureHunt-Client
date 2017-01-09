@@ -1,38 +1,52 @@
-app.controller("secondCtrl", function($scope){
+app.controller("secondCtrl", function($scope) {
 
+    var marker;
 
-    /*
-     // ------------ MAP -------------
-     // Default position
-     var centerpos = new google.maps.LatLng(43.6176162, 7.0664266);
-     var infowindow = new google.maps.InfoWindow();
+    $scope.GPS = function () {
 
-     // default options for the google map
-     var optionsGmaps = {
-     center:centerpos,
-     navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-     mapTypeId: google.maps.MapTypeId.ROADMAP,
-     zoom: 15
-     };
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(function (position) {
+                    console.log(position);
 
-     // Init map object
-     var map = new google.maps.Map(document.getElementById("map"), optionsGmaps);
+                    //Marker
+                    var myLatLng = {lat: position.coords.latitude, lng: position.coords.longitude};
+                    marker.setPosition(myLatLng);
+                    //Map center
+                    map.setCenter(myLatLng);
+                },
+               function (error) {
+                    console.log(error);
+               }
+            );
+        }
+    }
 
-     for(var i = 0; i < lat2.length; i++) {
+    $scope.googleMap = function () {
 
-     // Make new object LatLng for Google Maps
-     console.log(lat2[i] + " "+ lg2[i]);
-     var latlng = new google.maps.LatLng(lat2[i], lg2[i]);
+        var myLatLng = {lat: 0, lng: 0};
 
-     // Add a marker at position
-     var marker = new google.maps.Marker({
-     position: latlng,
-     map: map,
-     title:"You are here",
-     });
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: myLatLng,
+            zoom: 8
+        });
 
-     makeInfoWindowEvent(map, infowindow, name, marker);
-     */
+        marker = new google.maps.Marker({
+            map: map
+        });
+
+        //Popup
+        var infowindow = new google.maps.InfoWindow({
+            content: "Vous êtes ici !"
+        });
+        //Link marker and popup
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+    }
+
+    $scope.googleMap();
+    $scope.GPS();
+
 });
 
 
