@@ -1,6 +1,6 @@
 var app = angular.module('myApp', ['ui.router']);
 
-app.config(function($stateProvider, $urlRouterProvider){
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 	
 	var firstPageState = {
 		name : 'firstPageState',
@@ -19,4 +19,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 	$stateProvider.state(firstPageState);
 	$stateProvider.state(secondPageState);
 	$urlRouterProvider.otherwise('/');
+
+	// use the HTML5 History API
+	$locationProvider.html5Mode(true);
 })
