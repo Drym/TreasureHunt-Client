@@ -1,3 +1,3 @@
-/**
- * Created by lucas on 09/01/17.
- */
+app.controller("firstCtrl", function(){
+	$scope.test = "test";
+});
