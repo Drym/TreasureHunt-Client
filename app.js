@@ -5,9 +5,18 @@ app.config(function($stateProvider, $urlRouterProvider){
 	var firstPageState = {
 		name : 'firstPageState',
 		url : '/',
-		templateUrl : 'view/firstPage.html'
+		templateUrl : 'view/firstPage.html',
+		controller : 'firstCtrl'
+	}
+
+	var secondPageState = {
+		name : 'secondPageState',
+		url : '/second',
+		templateUrl : 'view/secondPage.html',
+		controller : 'secondCtrl'
 	}
 
 	$stateProvider.state(firstPageState);
+	$stateProvider.state(secondPageState);
 	$urlRouterProvider.otherwise('/');
 })
