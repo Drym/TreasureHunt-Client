@@ -31,16 +31,16 @@
 						<span class="icon-bar"></span>
 					</button>
 
-					<a class="navbar-brand" ui-sref="/"><span class="logo"><img alt="Brand" src="favicon.ico">Nom du bordel</span></a>
+					<a class="navbar-brand" ui-sref="firstPageState"><span class="logo"><img alt="Brand" src="favicon.ico">Nom du bordel</span></a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="js-navbar-collapse">
 
 					<ul class="nav navbar-nav">
 						<!-- TODO fix class="active" -->
-						<li><a ui-sref-active="active" ui-sref="/">Accueil</a></li>
-						<li><a ui-sref-active="active" ui-sref="/second">Nom du menu</a></li>
-						<li><a ui-sref-active="active" ui-sref="/">Nom du menu</a></li>
+						<li ui-sref-active="active"><a ui-sref="firstPageState">Accueil</a></li>
+						<li ui-sref-active="active"><a ui-sref="secondPageState">Nom du menu</a></li>
+						<li><a>Nom du menu</a></li>
 					</ul>
 				</div>
 			</div>
