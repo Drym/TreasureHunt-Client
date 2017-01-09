@@ -1,5 +1,13 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ui.router']);
 
-app.controller('testCtrl', function($scope){
-	$scope.test = "blablabla";
+app.config(function($stateProvider, $urlRouterProvider){
+	
+	var firstPageState = {
+		name : 'firstPageState',
+		url : '/',
+		templateUrl : 'view/firstPage.html'
+	}
+
+	$stateProvider.state(firstPageState);
+	$urlRouterProvider.otherwise('/');
 })
